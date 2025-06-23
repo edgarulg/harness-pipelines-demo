@@ -1,0 +1,22 @@
+pipeline:
+  name: basic-wait-gitx-bug-01
+  identifier: basicwaitgitxbug01
+  projectIdentifier: edgarproject
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: wait-stage
+        identifier: waitstage
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: <+input>
+        tags: {}
