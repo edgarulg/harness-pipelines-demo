@@ -1,0 +1,22 @@
+pipeline:
+  name: wait-basic-devspace-01
+  identifier: waitbasicdevspace01
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: wait-stage
+        identifier: waitstage
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: <+input>
+        tags: {}
