@@ -1,0 +1,22 @@
+pipeline:
+  name: cfd-changing-repo
+  identifier: cfdchangingrepo
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: wait-stage
+        identifier: waitstage
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 10s
+        tags: {}
