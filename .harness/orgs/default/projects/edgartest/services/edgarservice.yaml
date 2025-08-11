@@ -3,3 +3,32 @@ service:
   identifier: edgarservice
   orgIdentifier: default
   projectIdentifier: edgartest
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: helmmanifest
+            type: HelmChart
+            spec:
+              store:
+                type: Harness
+                spec:
+                  files:
+                    - /helm
+              helmVersion: V3
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+              fetchHelmChartMetadata: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - identifier: artifact1
+              spec:
+                version: 1.0.0
+              type: CustomArtifact
+            - identifier: artifact2
+              spec:
+                version: 2.0.0
+              type: CustomArtifact
+    type: Kubernetes
