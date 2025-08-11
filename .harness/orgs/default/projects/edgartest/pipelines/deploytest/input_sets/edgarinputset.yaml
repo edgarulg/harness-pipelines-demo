@@ -1,0 +1,32 @@
+inputSet:
+  name: edgar-inputset
+  identifier: edgarinputset
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  pipeline:
+    identifier: deploytest
+    stages:
+      - stage:
+          identifier: deploystage
+          type: Deployment
+          spec:
+            service:
+              serviceRef: edgarservice
+              serviceInputs:
+                serviceDefinition:
+                  type: Kubernetes
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: artifact1
+            environment:
+              environmentRef: edgarenv
+              infrastructureDefinitions:
+                - identifier: edgarinfra
+                  inputs:
+                    identifier: edgarinfra
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: edgark8sconnector
+                      namespace: edgar
+                      releaseName: release-1
