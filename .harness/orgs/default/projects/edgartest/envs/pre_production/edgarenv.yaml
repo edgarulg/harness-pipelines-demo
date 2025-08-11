@@ -1,0 +1,6 @@
+environment:
+  name: edgar-env
+  identifier: edgarenv
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  type: PreProduction
