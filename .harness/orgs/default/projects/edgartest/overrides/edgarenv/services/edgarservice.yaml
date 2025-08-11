@@ -1,0 +1,13 @@
+overrides:
+  manifests:
+    - manifest:
+        identifier: edgaroverride
+        type: Values
+        spec:
+          store:
+            spec:
+              files:
+                - /overrides/override-values
+              secretFiles: null
+            type: Harness
+          optionalValuesYaml: null
