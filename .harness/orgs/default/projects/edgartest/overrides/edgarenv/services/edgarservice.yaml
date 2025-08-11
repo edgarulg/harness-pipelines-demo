@@ -7,7 +7,7 @@ overrides:
           store:
             spec:
               files:
-                - /overrides/override-values
+                - /valuess.yaml
               secretFiles: null
             type: Harness
           optionalValuesYaml: null
