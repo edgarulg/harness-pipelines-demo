@@ -1,0 +1,5 @@
+service:
+  name: edgar-service
+  identifier: edgarservice
+  orgIdentifier: default
+  projectIdentifier: edgartest
