@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: edgar-infra
+  identifier: edgarinfra
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  environmentRef: edgarenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: <+input>.allowedValues(edgar)
+    releaseName: <+input>
+  allowSimultaneousDeployments: false
