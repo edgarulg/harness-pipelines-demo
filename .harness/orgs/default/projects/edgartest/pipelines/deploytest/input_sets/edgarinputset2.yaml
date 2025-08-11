@@ -1,0 +1,39 @@
+inputSet:
+  name: edgar-inputset-2
+  identifier: edgarinputset2
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  pipeline:
+    identifier: deploytest
+    stages:
+      - stage:
+          identifier: deploystage
+          type: Deployment
+          spec:
+            service:
+              serviceRef: edgarservice
+              serviceInputs:
+                serviceDefinition:
+                  type: Kubernetes
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: artifact1
+                        sources:
+                          - identifier: artifact1
+                            type: CustomArtifact
+                            spec:
+                              version: devpulse-ui/master
+              gitBranch: feature-patch
+            environment:
+              environmentRef: edgarenv
+              gitBranch: feature-patch
+              infrastructureDefinitions:
+                - identifier: edgarinfra
+                  inputs:
+                    identifier: edgarinfra
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: edgark8sconnector
+                      namespace: edgar
+                      releaseName: test
