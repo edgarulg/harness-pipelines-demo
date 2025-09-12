@@ -1,0 +1,4 @@
+repositories:
+  - repo: repository-1
+  - repo: repository-2
+  - repo: repository-3
