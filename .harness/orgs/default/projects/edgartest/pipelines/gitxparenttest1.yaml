@@ -1,0 +1,23 @@
+pipeline:
+  name: gitx-parent-test1
+  identifier: gitxparenttest1
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stage1
+        identifier: stage1
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: step1
+                  identifier: step1
+                  template:
+                    templateRef: stepwait
+                    versionLabel: v1
+                    gitBranch: develop-1
+        tags: {}
