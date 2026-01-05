@@ -1,0 +1,12 @@
+template:
+  name: stepwait
+  identifier: stepwait
+  versionLabel: v1
+  type: Step
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Wait
+    spec:
+      duration: 1m
