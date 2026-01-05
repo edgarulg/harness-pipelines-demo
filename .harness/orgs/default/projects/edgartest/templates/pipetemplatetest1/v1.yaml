@@ -1,0 +1,25 @@
+template:
+  name: pipe-template-test1
+  identifier: pipetemplatetest1
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stage1
+          identifier: stage1
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: Wait
+                    name: Wait_1
+                    identifier: Wait_1
+                    spec:
+                      duration: 41s
+          tags: {}
