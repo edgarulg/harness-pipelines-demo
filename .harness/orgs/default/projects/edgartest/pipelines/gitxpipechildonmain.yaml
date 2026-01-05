@@ -1,0 +1,22 @@
+pipeline:
+  name: gitx-pipe-child-on-main
+  identifier: gitxpipechildonmain
+  tags: {}
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: stage1
+        identifier: stage1
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 40s
+        tags: {}
