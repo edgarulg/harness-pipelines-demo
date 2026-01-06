@@ -30,3 +30,13 @@ pipeline:
           pipeline: gitxpipechildondevtest
           project: edgartest
           branch: devtest
+    - stage:
+        name: run-pipe-same-branch
+        identifier: runpipesamebranch
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: gitxpipechildonmain
+          project: edgartest
+          inputs: {}
