@@ -20,3 +20,13 @@ pipeline:
                   spec:
                     duration: 40s
         tags: {}
+    - stage:
+        name: run-pipe
+        identifier: runpipe
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: gitxpipechildondevtest
+          project: edgartest
+          branch: devtest
