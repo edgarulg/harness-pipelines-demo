@@ -30,3 +30,12 @@ pipeline:
           pipeline: gitxpipechildondevtest
           project: edgartest
           branch: devtest
+    - stage:
+        name: run-pipe-inline
+        identifier: runpipeinline
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: basicwait
+          project: edgartest
