@@ -39,3 +39,4 @@ pipeline:
           org: default
           pipeline: basicwait
           project: edgartest
+          branch: nonexisting
