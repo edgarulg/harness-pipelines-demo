@@ -1,0 +1,32 @@
+pipeline:
+  name: gitx-pipe-child-on-nest
+  identifier: gitxpipechildonnest
+  tags: {}
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: wait
+        identifier: wait
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 34s
+        tags: {}
+    - stage:
+        name: run-pipe-devtest
+        identifier: runpipedevtest
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: gitxpipechildondevtest
+          project: edgartest
+          branch: devtest
