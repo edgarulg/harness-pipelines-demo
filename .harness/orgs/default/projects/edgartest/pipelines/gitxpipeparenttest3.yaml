@@ -1,0 +1,26 @@
+pipeline:
+  name: gitx-pipe-parent-test3
+  identifier: gitxpipeparenttest3
+  tags: {}
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: pipe-1
+        identifier: pipe1
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: gitxpipechildonmain
+          project: edgartest
+    - stage:
+        name: pipe-2
+        identifier: pipe
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: gitxpipechildondevtest
+          project: edgartest
+          branch: devtest
