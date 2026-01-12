@@ -29,7 +29,7 @@ pipeline:
           org: default
           pipeline: gitxpipechildondevtest
           project: edgartest
-          branch: devtest
+          gitBranch: devtest
     - stage:
         name: run-pipe-inline
         identifier: runpipeinline
@@ -39,4 +39,4 @@ pipeline:
           org: default
           pipeline: basicwait
           project: edgartest
-          branch: nonexisting
+          gitBranch: nonexisting
