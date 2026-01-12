@@ -29,7 +29,7 @@ pipeline:
           org: default
           pipeline: gitxpipechildondevtest
           project: edgartest
-          branch: devtest
+          gitBranch: devtest
     - stage:
         name: run-pipe-same-branch
         identifier: runpipesamebranch
