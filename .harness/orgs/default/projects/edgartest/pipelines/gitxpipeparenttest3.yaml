@@ -23,4 +23,4 @@ pipeline:
           org: default
           pipeline: gitxpipechildondevtest
           project: edgartest
-          branch: devtest
+          gitBranch: devtest
