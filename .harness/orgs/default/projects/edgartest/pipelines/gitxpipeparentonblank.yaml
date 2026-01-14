@@ -1,0 +1,51 @@
+pipeline:
+  name: gitx-pipe-parent-on-blank
+  identifier: gitxpipeparentonblank
+  tags: {}
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: wait
+        identifier: wait
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 31s
+        tags: {}
+    - stage:
+        name: run-inline-pipe
+        identifier: runinlinepipe
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: basicwait
+          project: edgartest
+    - stage:
+        name: run-remote-pipe
+        identifier: runremotepipe
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: gitxpipechildonmain
+          project: edgartest
+          gitBranch: ""
+    - stage:
+        name: run-remote-pipe-2
+        identifier: runremotepipe2
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: gitxpipechildondevtest
+          project: edgartest
+          gitBranch: devtest
