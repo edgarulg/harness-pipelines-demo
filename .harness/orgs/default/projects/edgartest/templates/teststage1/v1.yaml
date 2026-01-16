@@ -1,0 +1,19 @@
+template:
+  name: test-stage1
+  identifier: teststage1
+  versionLabel: v1
+  type: Stage
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              type: Wait
+              name: Wait_1
+              identifier: Wait_1
+              spec:
+                duration: 35s
