@@ -1,0 +1,15 @@
+pipeline:
+  name: test-tempalte2
+  identifier: testtempalte2
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: test
+        identifier: test
+        tags: {}
+        template:
+          templateRef: teststage1
+          versionLabel: v1
+          gitBranch: develop-pipe2
