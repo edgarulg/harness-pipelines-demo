@@ -1,0 +1,22 @@
+pipeline:
+  name: PIPE-31579-child1
+  identifier: PIPE31579child1
+  projectIdentifier: edgarproject
+  orgIdentifier: DoNotDelete_MigratorOrg
+  tags: {}
+  stages:
+    - stage:
+        name: wait
+        identifier: wait
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 35s
+        tags: {}
