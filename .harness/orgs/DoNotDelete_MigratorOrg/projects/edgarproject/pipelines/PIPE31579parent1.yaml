@@ -20,3 +20,13 @@ pipeline:
                   spec:
                     duration: 30s
         tags: {}
+    - stage:
+        name: run-child
+        identifier: runchild
+        description: ""
+        type: Pipeline
+        spec:
+          org: DoNotDelete_MigratorOrg
+          pipeline: PIPE31579child1
+          project: edgarproject
+          gitBranch: demo1
