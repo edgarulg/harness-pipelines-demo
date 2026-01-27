@@ -62,7 +62,7 @@ pipeline:
                         identifier: Test_1
                         spec:
                           connectorRef: account.dockerhub
-                          image: linuxserver/yq:3.4.3
+                          image: andrewh5u/go-junit-report:latest
                           shell: Sh
                           command: echo "hello"
                           intelligenceMode: true
