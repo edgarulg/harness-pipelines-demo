@@ -135,6 +135,6 @@ pipeline:
           matrix:
             container:
               - name: test1
-                test_result: magicResult.xml
+                test_results_path: magicResult.xml
             maxConcurrency: 2
             nodeName: <+matrix.container.name>
