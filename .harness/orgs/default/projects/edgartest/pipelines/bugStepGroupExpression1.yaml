@@ -1,0 +1,38 @@
+pipeline:
+  name: bugStepGroupExpression1
+  identifier: bugStepGroupExpression1
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: build1
+        identifier: build1
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: false
+          caching:
+            enabled: true
+            override: false
+          buildIntelligence:
+            enabled: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.cdplayacc
+              namespace: default
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: account.dockerhub
+                    image: linuxserver/yq:3.4.3
+                    shell: Sh
+                    command: echo "hello"
