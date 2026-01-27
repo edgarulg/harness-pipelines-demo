@@ -24,7 +24,6 @@ template:
               type: JUnit
               spec:
                 paths:
-                  - "**/*.xml"
                   - <+execution.steps.Unit_Tests_and_Sonar.variables.result_path>
                   - <+stepGroup.variables.result_path>
                   - <+stepGroup.variables.app_name>
