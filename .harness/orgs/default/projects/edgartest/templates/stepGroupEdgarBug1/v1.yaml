@@ -27,6 +27,7 @@ template:
                   - <+execution.steps.Unit_Tests_and_Sonar.variables.result_path>
                   - <+stepGroup.variables.result_path>
                   - <+stepGroup.variables.app_name>
+                  - "1"
             intelligenceMode: true
     variables:
       - name: app_name
