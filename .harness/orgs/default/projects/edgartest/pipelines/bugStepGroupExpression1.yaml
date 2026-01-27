@@ -36,3 +36,33 @@ pipeline:
                     image: linuxserver/yq:3.4.3
                     shell: Sh
                     command: echo "hello"
+    - stage:
+        name: runUnitTest1
+        identifier: runUnitTest1
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: false
+          caching:
+            enabled: true
+            override: false
+          buildIntelligence:
+            enabled: true
+          infrastructure:
+            useFromStage: build1
+          execution:
+            steps:
+              - stepGroup:
+                  name: stepGroup1
+                  identifier: stepGroup1
+                  steps:
+                    - step:
+                        type: Test
+                        name: Test_1
+                        identifier: Test_1
+                        spec:
+                          connectorRef: account.dockerhub
+                          image: linuxserver/yq:3.4.3
+                          shell: Sh
+                          command: echo "hello"
+                          intelligenceMode: true
