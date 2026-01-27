@@ -109,3 +109,32 @@ pipeline:
                               paths:
                                 - "**/*.xml"
                           intelligenceMode: true
+    - stage:
+        name: runTest2
+        identifier: runTest2
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: false
+          caching:
+            enabled: true
+            override: false
+          buildIntelligence:
+            enabled: true
+          infrastructure:
+            useFromStage: build1
+          execution:
+            steps:
+              - stepGroup:
+                  name: Unit Tests and Sonar
+                  identifier: Unit_Tests_and_Sonar
+                  template:
+                    templateRef: stepGroupEdgarBug1
+                    versionLabel: v1
+        strategy:
+          matrix:
+            container:
+              - name: test1
+                test_result: magicResult.xml
+            maxConcurrency: 2
+            nodeName: <+matrix.container.name>
