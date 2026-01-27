@@ -57,6 +57,42 @@ pipeline:
                   identifier: stepGroup1
                   steps:
                     - step:
+                        type: Run
+                        name: Run_1
+                        identifier: Run_1
+                        spec:
+                          connectorRef: account.dockerhub
+                          image: linuxserver/yq:3.4.3
+                          shell: Sh
+                          command: |-
+                            echo '<?xml version="1.0" encoding="UTF-8"?>
+                            <testsuites tests="2" failures="1" errors="0" time="0.120" name="com.example.MyTestSuite">
+                              <testsuite name="com.example.MyTestClass" tests="2" failures="1" errors="0" skipped="0" time="0.120" timestamp="2025-01-27T09:57:00 PST">
+                                <properties>
+                                  <property name="java.vm.vendor" value="Oracle Corporation"/>
+                                  <property name="os.name" value="Mac OS X"/>
+                                  <!-- Other system properties can go here -->
+                                </properties>
+                                <testcase classname="com.example.MyTestClass" name="testPassingMethod" time="0.040"/>
+                                <testcase classname="com.example.MyTestClass" name="testFailingMethod" time="0.080">
+                                  <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">
+                                    <![CDATA[
+                                    org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+                                        at com.example.MyTestClass.testFailingMethod(MyTestClass.java:15)
+                                        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+                                        ... (stack trace continues) ...
+                                    ]]>
+                                  </failure>
+                                </testcase>
+                                <system-out>
+                                  System output during the test suite execution.
+                                </system-out>
+                                <system-err>
+                                  System error output during the test suite execution.
+                                </system-err>
+                              </testsuite>
+                            </testsuites>' > magicReport.xml
+                    - step:
                         type: Test
                         name: Test_1
                         identifier: Test_1
