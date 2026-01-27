@@ -62,7 +62,14 @@ pipeline:
                         identifier: Test_1
                         spec:
                           connectorRef: account.dockerhub
-                          image: andrewh5u/go-junit-report:latest
+                          image: jfrench/go-junit-docker:latest
                           shell: Sh
-                          command: echo "hello"
+                          command: |-
+                            ls -la
+                            echo "hello"
+                          reports:
+                            type: JUnit
+                            spec:
+                              paths:
+                                - "**/*.xml"
                           intelligenceMode: true
