@@ -1,0 +1,42 @@
+template:
+  name: stepGroupEdgarBug1
+  identifier: stepGroupEdgarBug1
+  versionLabel: v1
+  type: StepGroup
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stageType: CI
+    steps:
+      - step:
+          type: Test
+          name: Test_1
+          identifier: Test_1
+          spec:
+            connectorRef: account.dockerhub
+            image: linuxserver/yq:3.4.3
+            shell: Sh
+            command: |-
+              ls -la
+              echo "hello"
+            reports:
+              type: JUnit
+              spec:
+                paths:
+                  - "**/*.xml"
+                  - <+execution.steps.Unit_Tests_and_Sonar.variables.result_path>
+                  - <+stepGroup.variables.result_path>
+                  - <+stepGroup.variables.app_name>
+            intelligenceMode: true
+    variables:
+      - name: app_name
+        type: String
+        value: <+matrix.container.name>
+        description: ""
+        required: false
+      - name: result_path
+        type: String
+        value: <+matrix.container.test_results_path>
+        description: ""
+        required: false
