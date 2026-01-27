@@ -28,6 +28,7 @@ template:
                   - <+stepGroup.variables.result_path>
                   - <+stepGroup.variables.app_name>
                   - "1"
+                  - <+stepGroup.variables.test_results_path_test>
             intelligenceMode: true
     variables:
       - name: app_name
