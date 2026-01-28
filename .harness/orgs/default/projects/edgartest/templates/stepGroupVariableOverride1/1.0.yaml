@@ -54,6 +54,10 @@ template:
                       message: justATest
                   maxConcurrency: 5
                   nodeName: magicNode
+              variables:
+                - name: cosign_private_key
+                  type: String
+                  value: cosign_private_key
           - stage:
               name: another build
               identifier: another_build
