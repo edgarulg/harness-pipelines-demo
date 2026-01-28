@@ -47,6 +47,13 @@ template:
                           - name: random2
                             type: String
                             value: randomValue2
+              strategy:
+                matrix:
+                  container:
+                    - name: containName
+                      message: justATest
+                  maxConcurrency: 5
+                  nodeName: magicNode
           - stage:
               name: another build
               identifier: another_build
