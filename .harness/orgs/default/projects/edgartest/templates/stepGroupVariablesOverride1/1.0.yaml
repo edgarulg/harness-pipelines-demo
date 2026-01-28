@@ -1,0 +1,49 @@
+template:
+  name: stepGroupVariablesOverride1
+  identifier: stepGroupVariablesOverride1
+  versionLabel: "1.0"
+  type: StepGroup
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stageType: CI
+    steps:
+      - step:
+          type: Test
+          name: Test_1
+          identifier: Test_1
+          spec:
+            connectorRef: account.dockerhub
+            image: linuxserver/yq:3.4.3
+            shell: Sh
+            command: |-
+              ls -la
+              echo "hello"
+            reports:
+              type: JUnit
+              spec:
+                paths:
+                  - <+execution.steps.Unit_Tests_and_Sonar.variables.random1>
+                  - <+execution.steps.Unit_Tests_and_Sonar.variables.random2>
+                  - <+execution.steps.Unit_Tests_and_Sonar.variables.app_name>
+                  - <+stepGroup.variables.random1>
+                  - <+stepGroup.variables.random2>
+                  - <+stepGroup.variables.app_name>
+            intelligenceMode: true
+    variables:
+      - name: app_name
+        type: String
+        description: Name of the application/module being tested
+        required: false
+        value: <+matrix.container.name>
+      - name: random1
+        type: String
+        description: Path to test results
+        required: false
+        value: <+matrix.container.message>
+      - name: random2
+        type: String
+        description: Some variables for testing purpose
+        required: false
+        value: randomValue2
