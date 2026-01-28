@@ -1,0 +1,71 @@
+template:
+  name: stepGroupVariableOverride1
+  identifier: stepGroupVariableOverride1
+  versionLabel: "1.0"
+  type: Pipeline
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - parallel:
+          - stage:
+              name: Build Service
+              identifier: Build_Service
+              description: ""
+              type: CI
+              spec:
+                cloneCodebase: false
+                caching:
+                  enabled: true
+                  override: false
+                buildIntelligence:
+                  enabled: true
+                infrastructure:
+                  type: KubernetesDirect
+                  spec:
+                    connectorRef: account.cdplayacc
+                    namespace: default
+                    automountServiceAccountToken: true
+                    nodeSelector: {}
+                    os: Linux
+                execution:
+                  steps:
+                    - stepGroup:
+                        name: Unit Tests and Sonar
+                        identifier: Unit_Tests_and_Sonar
+                        template:
+                          templateRef: stepGroupVariablesOverride1
+                          versionLabel: "1.0"
+                        variables:
+                          - name: app_name
+                            type: String
+                            value: <+matrix.container.name>
+                          - name: random1
+                            type: String
+                            value: <+matrix.container.message>
+          - stage:
+              name: another build
+              identifier: another_build
+              description: ""
+              type: CI
+              spec:
+                cloneCodebase: false
+                caching:
+                  enabled: true
+                  override: false
+                buildIntelligence:
+                  enabled: true
+                infrastructure:
+                  useFromStage: Build_Service
+                execution:
+                  steps:
+                    - step:
+                        type: Run
+                        name: Run_1
+                        identifier: Run_1
+                        spec:
+                          connectorRef: account.dockerhub
+                          image: linuxserver/yq:3.4.3
+                          shell: Sh
+                          command: echo "hello"
