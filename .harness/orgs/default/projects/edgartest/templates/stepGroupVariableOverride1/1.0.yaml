@@ -44,9 +44,6 @@ template:
                           - name: random1
                             type: String
                             value: <+matrix.container.message>
-                          - name: random2
-                            type: String
-                            value: randomValue2
               strategy:
                 matrix:
                   container:
