@@ -83,3 +83,9 @@ template:
                           image: linuxserver/yq:3.4.3
                           shell: Sh
                           command: echo "hello"
+    variables:
+      - name: teams_webhook_url_secret
+        type: String
+        description: Secret storing the webhook for MS Teams Notifications
+        value: <+input>.default(org.default_teams_alert_webhook)
+        required: false
