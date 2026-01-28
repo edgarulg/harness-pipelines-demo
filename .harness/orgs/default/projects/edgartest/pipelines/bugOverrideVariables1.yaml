@@ -1,0 +1,14 @@
+pipeline:
+  name: bugOverrideVariables1
+  identifier: bugOverrideVariables1
+  tags: {}
+  template:
+    templateRef: stepGroupVariableOverride1
+    versionLabel: "1.0"
+    templateInputs:
+      variables:
+        - name: teams_webhook_url_secret
+          type: String
+          value: org.platup_teams_alert_webhook
+  projectIdentifier: edgartest
+  orgIdentifier: default
