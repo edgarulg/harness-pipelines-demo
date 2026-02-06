@@ -1,0 +1,43 @@
+template:
+  name: scanTemplate
+  identifier: scanTemplate
+  versionLabel: "1.0"
+  type: Stage
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: SecurityTests
+    spec:
+      cloneCodebase: false
+      caching:
+        enabled: true
+        override: false
+        paths: []
+      buildIntelligence:
+        enabled: false
+      infrastructure:
+        type: KubernetesDirect
+        spec:
+          connectorRef: account.K8s
+          namespace: default
+          automountServiceAccountToken: true
+          nodeSelector: {}
+          os: Linux
+      execution:
+        steps:
+          - step:
+              type: Run
+              name: Run_1
+              identifier: Run_1
+              spec:
+                connectorRef: account.harnessImage
+                image: linuxserver/yq:3.4.3
+                shell: Sh
+                command: echo <+stage.variables.message>
+    variables:
+      - name: message
+        type: String
+        description: ""
+        required: false
+        value: <+input>
