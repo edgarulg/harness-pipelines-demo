@@ -1,0 +1,17 @@
+inputSet:
+  name: test-inputset
+  identifier: testinputset
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  pipeline:
+    identifier: bugInputSetSendingEmptyIdentifier
+    stages:
+      - stage:
+          identifier: runScan
+          template:
+            templateInputs:
+              type: SecurityTests
+              variables:
+                - name: message
+                  type: String
+                  value: Hola
