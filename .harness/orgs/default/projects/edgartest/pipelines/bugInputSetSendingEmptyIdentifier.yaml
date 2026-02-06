@@ -1,0 +1,19 @@
+pipeline:
+  name: bugInputSetSendingEmptyIdentifier
+  identifier: bugInputSetSendingEmptyIdentifier
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: runScan
+        identifier: runScan
+        template:
+          templateRef: scanTemplate
+          versionLabel: "1.0"
+          templateInputs:
+            type: SecurityTests
+            variables:
+              - name: message
+                type: String
+                value: <+input>
