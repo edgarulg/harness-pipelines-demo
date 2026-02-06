@@ -1,5 +1,6 @@
 inputSet:
   name: test-inputset
+  tags: {}
   identifier: testinputset
   orgIdentifier: default
   projectIdentifier: edgartest
