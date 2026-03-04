@@ -1,0 +1,22 @@
+pipeline:
+  name: child-pipe-ed1
+  identifier: childpipeed1
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: wait1
+        identifier: wait1
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 31s
+        tags: {}
