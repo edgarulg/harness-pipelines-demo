@@ -1,0 +1,19 @@
+inputSet:
+  name: inputset06March
+  identifier: inputset06March
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  pipeline:
+    identifier: childpipe1
+    stages:
+      - stage:
+          identifier: wait
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Wait_1
+                    type: Wait
+                    spec:
+                      duration: 31s
