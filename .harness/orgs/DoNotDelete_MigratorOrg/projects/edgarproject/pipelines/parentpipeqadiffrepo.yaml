@@ -1,0 +1,34 @@
+pipeline:
+  name: parent-pipe-qa-diff-repo
+  identifier: parentpipeqadiffrepo
+  projectIdentifier: edgarproject
+  orgIdentifier: DoNotDelete_MigratorOrg
+  tags: {}
+  stages:
+    - stage:
+        name: wait
+        identifier: wait
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 30s
+        tags: {}
+    - stage:
+        name: call-child
+        identifier: callchild
+        description: ""
+        type: Pipeline
+        spec:
+          org: DoNotDelete_MigratorOrg
+          pipeline: childpipeqa1
+          project: edgarproject
+          gitBranch: develop-patch-qa
+          inputSetReferences:
+            - inputsetqa
