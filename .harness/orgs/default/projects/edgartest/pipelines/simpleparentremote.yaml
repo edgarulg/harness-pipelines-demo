@@ -30,7 +30,20 @@ pipeline:
           project: edgartest
           pipeline: simplechildremote
           gitBranch: main
-          inputs: {}
+          inputs:
+            identifier: simplechildremote
+            stages:
+              - stage:
+                  identifier: wait
+                  type: Custom
+                  spec:
+                    execution:
+                      steps:
+                        - step:
+                            identifier: Wait_1
+                            type: Wait
+                            spec:
+                              duration: <+matrix.waits>
         strategy:
           matrix:
             waits:
