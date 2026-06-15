@@ -1,0 +1,40 @@
+pipeline:
+  name: simple-parent-remote
+  identifier: simpleparentremote
+  projectIdentifier: edgartest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: wait
+        identifier: wait
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 13s
+        tags: {}
+    - stage:
+        name: child-remote
+        identifier: childremote
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          project: edgartest
+          pipeline: simplechildremote
+          gitBranch: main
+          inputs: {}
+        strategy:
+          matrix:
+            waits:
+              - 15s
+              - 30s
+              - 45s
+              - 60s
