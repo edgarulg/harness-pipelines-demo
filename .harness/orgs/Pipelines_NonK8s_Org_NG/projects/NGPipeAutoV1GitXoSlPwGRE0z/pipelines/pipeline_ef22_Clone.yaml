@@ -1,10 +1,24 @@
----
 pipeline:
+  barriers:
+    - bar1
+  clone:
+    disabled: true
   stages:
-  - name: "Stage 1"
-    id: "stage1"
-    steps:
-    - name: "Step 1"
-      id: "step1"
-      run:
-        script: "echo \"hello world\""
+    - parallel:
+        stages:
+          - id: childStage1
+            name: childStage1
+            steps:
+              - barrier:
+                  name: bar1
+                id: Barrier_1
+                name: Barrier_1
+                timeout: 10m
+          - id: childStage2
+            name: childStage2
+            steps:
+              - barrier:
+                  name: bar1
+                id: Barrier_2
+                name: Barrier_2
+                timeout: 10m
