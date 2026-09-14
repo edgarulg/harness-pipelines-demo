@@ -6,7 +6,7 @@ pipeline:
         - name: Step 1
           id: step1
           run:
-            script: echo "hello world"
+            script: echo "hello world from branch devtest"
       platform:
         os: macos
         arch: arm64
