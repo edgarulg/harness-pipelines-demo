@@ -1,0 +1,9 @@
+pipeline:
+  stages:
+    - name: stage_15a6
+      id: stage_15a6
+      steps:
+        - name: run1
+          run:
+            script: exit 0
+          id: run1
