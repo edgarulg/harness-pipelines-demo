@@ -7,3 +7,8 @@ pipeline:
           run:
             script: exit 0
           id: run1
+    - name: run-chained
+      id: run_chained
+      chain:
+        uses: default/edgarproject/gitx_parity_on_dev
+        ref: develop-pipe
