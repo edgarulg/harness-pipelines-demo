@@ -12,3 +12,8 @@ pipeline:
       chain:
         uses: default/edgarproject/gitx_parity_on_dev
         ref: develop-pipe
+    - name: run-chained-another-repo
+      id: run_chained_another_repo
+      chain:
+        uses: default/edgarproject/gitx_parity_on_diff_repo_on_dev
+        ref: develop
