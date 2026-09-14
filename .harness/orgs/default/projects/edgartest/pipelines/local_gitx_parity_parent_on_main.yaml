@@ -1,0 +1,27 @@
+pipeline:
+  stages:
+    - name: Stage 1
+      id: stage1
+      steps:
+        - name: Step 1
+          id: step1
+          run:
+            script: echo "hello world from parent main"
+      platform:
+        os: macos
+        arch: arm64
+      runtime: shell
+    - name: run-chained1
+      id: run_chained1
+      chain:
+        uses: default/edgartest/local_gitx_parity_on_dev
+        ref: devtest
+    - name: run-chained-another-repo1
+      id: run_chained_another_repo1
+      chain:
+        uses: default/edgartest/local_gitx_parity_on_diff_repo_on_dev
+        ref: develop
+    - name: run-chained-inline1
+      id: run_chained_inline1
+      chain:
+        uses: default/edgartest/simple_wait
