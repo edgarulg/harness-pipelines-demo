@@ -17,3 +17,7 @@ pipeline:
       chain:
         uses: default/edgarproject/gitx_parity_on_diff_repo_on_dev
         ref: develop
+    - name: run-chained-inline
+      id: run_chained_inline
+      chain:
+        uses: default/edgarproject/wait_example
