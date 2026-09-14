@@ -5,5 +5,8 @@ pipeline:
       steps:
         - name: run1
           run:
-            script: exit 0
+            script: |-
+              echo "using pipeline from non main branch"
+
+              exit 0
           id: run1
