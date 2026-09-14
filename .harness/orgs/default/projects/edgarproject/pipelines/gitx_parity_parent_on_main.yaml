@@ -17,6 +17,9 @@ pipeline:
       chain:
         uses: default/edgarproject/gitx_parity_on_diff_repo_on_dev
         ref: develop
+        with:
+          input-sets:
+            - inputSet_custom
     - name: run-chained-inline
       id: run_chained_inline
       chain:
