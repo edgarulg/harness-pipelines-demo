@@ -1,4 +1,11 @@
 template:
   step:
     run:
-      script: echo "hello from remote template ref"
+      script: echo "$MESSAGE from remote template ref"
+      env:
+        MESSAGE: ${{inputs.message}}
+  inputs:
+    message:
+      type: string
+      label: message
+      required: true
