@@ -1,0 +1,4 @@
+template:
+  step:
+    run:
+      script: echo "hello from remote template ref"
