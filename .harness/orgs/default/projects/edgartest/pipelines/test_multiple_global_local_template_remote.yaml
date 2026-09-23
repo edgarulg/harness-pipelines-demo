@@ -5,5 +5,33 @@ pipeline:
       steps:
         - name: Step 1
           id: step1
-          run: 
+          run:
             script: echo "hello world"
+        - name: custom_temp1
+          id: custom_temp1
+          template:
+            uses: basic_template@1
+            with:
+              message: edgar
+        - name: remote-template
+          id: remote_template
+          template:
+            uses: basic_remote_template@1
+            with:
+              message: ${{inputs.message}}
+        - name: global1
+          sto:
+            with: {}
+            uses: snykStep
+          id: global1
+          template:
+            uses: snykStep@1.0.3
+            with: {}
+      platform:
+        os: macos
+        arch: arm64
+      runtime: shell
+  inputs:
+    message:
+      type: string
+      label: message
