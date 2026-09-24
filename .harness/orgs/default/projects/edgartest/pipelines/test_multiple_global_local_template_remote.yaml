@@ -10,7 +10,7 @@ pipeline:
         - name: custom_temp1
           id: custom_temp1
           template:
-            uses: basic_template@1
+            uses: basic_template
             with:
               message: edgar
         - name: remote-template
