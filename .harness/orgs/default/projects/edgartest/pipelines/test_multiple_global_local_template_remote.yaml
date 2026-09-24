@@ -27,6 +27,48 @@ pipeline:
           template:
             uses: snykStep@1.0.3
             with: {}
+        - name: global2
+          id: global2
+          sto:
+            uses: prowlerStep
+            with:
+              target: myapp
+              variant: main
+        - name: global3
+          sto:
+            with: {}
+            uses: sysdigStep
+          id: global3
+        - name: global6
+          id: global6
+          sto:
+            uses: banditStep
+        - name: global4
+          sto:
+            with: {}
+            uses: aquaSecurityStep
+          id: global4
+        - name: global5
+          id: global5
+          sto:
+            uses: customScanStep
+            with:
+              settings:
+                - key: one
+                  value: tow
+        - name: global7
+          id: global7
+          sto:
+            uses: harnessCodeStep
+        - name: global8
+          sto:
+            with: {}
+            uses: mythosAgentStep
+          id: global8
+        - name: global9
+          id: global9
+          sto:
+            uses: checkovStep
       platform:
         os: macos
         arch: arm64
