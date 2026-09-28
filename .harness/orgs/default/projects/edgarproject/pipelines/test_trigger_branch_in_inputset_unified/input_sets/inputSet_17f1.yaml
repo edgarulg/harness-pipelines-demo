@@ -1,0 +1,11 @@
+name: sleep-15s-dev1
+identifier: sleep_15s_dev1
+inputs:
+  overlay:
+    stages:
+      - steps:
+          - run:
+              env:
+                SLEEP: 15s
+            id: wait
+        id: stage_59a5
