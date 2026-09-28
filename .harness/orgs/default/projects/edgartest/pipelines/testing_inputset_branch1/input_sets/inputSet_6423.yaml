@@ -1,0 +1,11 @@
+name: input-20s
+identifier: input_20s
+inputs:
+  overlay:
+    stages:
+      - steps:
+          - run:
+              env:
+                SLEEP: 20s
+            id: step1
+        id: stage1
