@@ -6,7 +6,9 @@ pipeline:
         - name: Step 1
           id: step1
           run:
-            script: sleep $SLEEP
+            script: |-
+              echo "sleeping $SLEEP"
+              sleep $SLEEP
             env:
               SLEEP: <+input>
       platform:
