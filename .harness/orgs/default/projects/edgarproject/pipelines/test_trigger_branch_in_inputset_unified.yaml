@@ -5,7 +5,9 @@ pipeline:
       steps:
         - name: wait
           run:
-            script: sleep $SLEEP
+            script: |-
+              echo "sleeeping $SLEEP"
+              sleep $SLEEP
             env:
               SLEEP: <+input>
           id: wait
