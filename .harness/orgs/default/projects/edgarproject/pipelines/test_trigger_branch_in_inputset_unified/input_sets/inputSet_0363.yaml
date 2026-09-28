@@ -1,0 +1,11 @@
+name: sleep-20s-main
+identifier: sleep_20s_main
+inputs:
+  overlay:
+    stages:
+      - steps:
+          - run:
+              env:
+                SLEEP: 20s
+            id: wait
+        id: stage_59a5
