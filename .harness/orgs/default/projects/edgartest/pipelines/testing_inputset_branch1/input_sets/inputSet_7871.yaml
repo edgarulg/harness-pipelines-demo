@@ -1,0 +1,11 @@
+name: input-35s
+identifier: input_35s
+inputs:
+  overlay:
+    stages:
+      - steps:
+          - run:
+              env:
+                SLEEP: 35s
+            id: step1
+        id: stage1
