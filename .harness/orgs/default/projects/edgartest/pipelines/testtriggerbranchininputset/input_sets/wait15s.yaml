@@ -1,0 +1,19 @@
+inputSet:
+  name: wait-15s-dev1
+  identifier: wait15sdev1
+  orgIdentifier: default
+  projectIdentifier: edgartest
+  pipeline:
+    identifier: testtriggerbranchininputset
+    stages:
+      - stage:
+          identifier: wait
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: Wait_1
+                    type: Wait
+                    spec:
+                      duration: 15s
