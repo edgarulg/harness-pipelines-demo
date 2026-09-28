@@ -9,3 +9,7 @@ pipeline:
             script: sleep $SLEEP
             env:
               SLEEP: <+input>
+      platform:
+        os: macos
+        arch: arm64
+      runtime: shell
