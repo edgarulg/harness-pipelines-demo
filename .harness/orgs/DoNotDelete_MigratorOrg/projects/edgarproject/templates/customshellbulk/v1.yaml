@@ -19,5 +19,8 @@ template:
           script: |-
             echo "message one"
             echo "message two"
-      environmentVariables: []
+      environmentVariables:
+        - name: one
+          type: String
+          value: <+input>
       outputVariables: []
