@@ -19,4 +19,11 @@ pipeline:
                   template:
                     templateRef: customshellbulk
                     versionLabel: v1
+                    templateInputs:
+                      type: ShellScript
+                      spec:
+                        environmentVariables:
+                          - name: one
+                            type: String
+                            value: <+input>
         tags: {}
