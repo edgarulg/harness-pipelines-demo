@@ -1,0 +1,22 @@
+pipeline:
+  name: testing-template-bulk1
+  identifier: testingtemplatebulk1
+  projectIdentifier: edgarproject
+  orgIdentifier: DoNotDelete_MigratorOrg
+  tags: {}
+  stages:
+    - stage:
+        name: testing
+        identifier: testing
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: using-template
+                  identifier: usingtemplate
+                  template:
+                    templateRef: customshellbulk
+                    versionLabel: v1
+        tags: {}
