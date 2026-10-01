@@ -16,6 +16,8 @@ template:
       source:
         type: Inline
         spec:
-          script: echo "message one"
+          script: |-
+            echo "message one"
+            echo "message two"
       environmentVariables: []
       outputVariables: []
