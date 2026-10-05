@@ -23,4 +23,7 @@ template:
         - name: one
           type: String
           value: <+input>
+        - name: two
+          type: String
+          value: <+input>
       outputVariables: []
